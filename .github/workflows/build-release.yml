@@ -19,9 +19,9 @@ jobs:
       matrix:
         include:
           - id: 24.10
-            arch: x86_64
-            sdk_url_path: https://downloads.immortalwrt.org/releases/24.10.6/targets/x86/64/
-            sdk_name: -sdk-24.10.6-x86-64_
+            arch: aarch64_generic
+            sdk_url_path: https://downloads.immortalwrt.org/releases/24.10.6/targets/rockchip/armv8/
+            sdk_name: -sdk-24.10.6-rockchip-armv8_
 
     env:
       SDK_URL_PATH: ${{ matrix.sdk_url_path }}
@@ -118,7 +118,6 @@ jobs:
         with:
           files: |
             *.ipk
-            *.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
