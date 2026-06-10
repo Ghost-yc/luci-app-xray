@@ -20,7 +20,7 @@ jobs:
         include:
           - id: 24.10
             arch: aarch64_generic
-            sdk_url_path: https://downloads.openwrt.org/releases/24.10.6/targets/rockchip/armv8/
+            sdk_url_path: https://downloads.immortalwrt.org/releases/24.10.6/targets/rockchip/armv8/
             sdk_name: -sdk-24.10.6-rockchip-armv8_
 
     env:
@@ -87,10 +87,10 @@ jobs:
           ln -s "$CACHE_DIR_DL" "dl"
           ln -s "$CACHE_DIR_FEEDS" "feeds"
           cp feeds.conf.default feeds.conf
-          sed -i 's#git.openwrt.org/openwrt/openwrt#github.com/openwrt/openwrt#' feeds.conf
-          sed -i 's#git.openwrt.org/feed/packages#github.com/openwrt/packages#' feeds.conf
-          sed -i 's#git.openwrt.org/project/luci#github.com/openwrt/luci#' feeds.conf
-          sed -i 's#git.openwrt.org/feed/telephony#github.com/openwrt/telephony#' feeds.conf
+          # sed -i 's#git.openwrt.org/openwrt/openwrt#github.com/openwrt/openwrt#' feeds.conf
+          # sed -i 's#git.openwrt.org/feed/packages#github.com/openwrt/packages#' feeds.conf
+          # sed -i 's#git.openwrt.org/project/luci#github.com/openwrt/luci#' feeds.conf
+          # sed -i 's#git.openwrt.org/feed/telephony#github.com/openwrt/telephony#' feeds.conf
           cd -
       - name: Update and Install Packages
         run: |
