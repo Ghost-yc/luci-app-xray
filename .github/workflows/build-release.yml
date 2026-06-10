@@ -97,6 +97,7 @@ jobs:
           cd "$SDK_HOME"
           ./scripts/feeds update -a
           ln -s "${{ github.workspace }}" "package/$PACKAGE_NAME"
+          git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn package/luci-i18n-xray-zh-cn
           ./scripts/feeds install -a
           cd -
       - name: Build Packages
