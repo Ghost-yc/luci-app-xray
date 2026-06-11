@@ -95,9 +95,13 @@ jobs:
       - name: Update and Install Packages
         run: |
           cd "$SDK_HOME"
-          ./scripts/feeds update -a
-          ln -s "${{ github.workspace }}" "package/$PACKAGE_NAME"
-          git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn package/luci-i18n-xray-zh-cn
+          ./scripts/feeds update -a || echo "::warning::Some feeds failed to update, continuing..."
+          ln -sf "${{ github.workspace }}" "package/$PACKAGE_NAME"
+          if [ ! -d "package/luci-i18n-xray-zh-cn" ]; then
+            git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn package/luci-i18n-xray-zh-cn
+          else
+            echo "luci-i18n-xray-zh-cn already exists, skipping clone"
+          fi
           ./scripts/feeds install -a
           cd -
       - name: Build Packages
