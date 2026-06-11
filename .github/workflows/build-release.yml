@@ -91,7 +91,8 @@ jobs:
           # sed -i 's#git.openwrt.org/feed/packages#github.com/openwrt/packages#' feeds.conf
           # sed -i 's#git.openwrt.org/project/luci#github.com/openwrt/luci#' feeds.conf
           # sed -i 's#git.openwrt.org/feed/telephony#github.com/openwrt/telephony#' feeds.conf
-          echo "src-git packages https://github.com/xiechangan123/luci-i18n-xray-zh-cn.git^HEAD" >> feeds.conf
+          # echo "src-git package https://github.com/xiechangan123/luci-i18n-xray-zh-cn.git^HEAD" >> feeds.conf
+          git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn.git package/luci-i18n-xray-zh-cn
           cd -
       - name: Update and Install Packages
         run: |
